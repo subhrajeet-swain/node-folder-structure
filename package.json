@@ -1,6 +1,6 @@
 {
   "name": "node-folder-structure",
-  "version": "1.0.3",
+  "version": "1.0.9",
   "description": "A CLI tool to generate 3-layer approach folder structure for node js",
   "main": "bin/cli.js",
   "bin": {
@@ -10,6 +10,7 @@
     "lib": "lib"
   },
   "scripts": {
+    "postinstall": "node bin/cli.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
