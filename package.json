@@ -10,7 +10,6 @@
     "lib": "lib"
   },
   "scripts": {
-    "postinstall": "node bin/cli.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -32,6 +31,9 @@
   },
   "homepage": "https://github.com/subhrajeet-swain/create-express-app#readme",
   "dependencies": {
-    "fs-extra": "^11.2.0"
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "fs-extra": "^11.2.0",
+    "mongoose": "^8.13.2"
   }
 }
