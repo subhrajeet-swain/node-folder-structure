@@ -22,7 +22,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/subhrajeet-swain/create-express-app.git"
+    "url": "git+https://github.com/subhrajeet-swain/node-folder-structure.git"
   },
   "keywords": [
     "express",
@@ -38,9 +38,9 @@
   "author": "subhrajeet-swain",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/subhrajeet-swain/create-express-app/issues"
+    "url": "https://github.com/subhrajeet-swain/node-folder-structure/issues"
   },
-  "homepage": "https://github.com/subhrajeet-swain/create-express-app#readme",
+  "homepage": "https://github.com/subhrajeet-swain/node-folder-structure#readme",
   "dependencies": {
     "fs-extra": "^11.3.0"
   },

@@ -460,31 +460,28 @@ module.exports = {
     validateUserMiddleware
 }`
 
-const readmeFile = `# Node Folder Structure Generator
+const package_json = `{
+  "name": "{{app_name}}",
+  "version": "1.0.0",
+  "description": "Express app with 3-layer architecture",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "ajv": "^8.12.0",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.0",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}`
 
-A CLI tool to generate an express app with a 3-layer approach folder structure.
-
-## Quick Start (Recommended)
-\`\`\`bash
-npx node-folder-structure
-\`\`\`
-
-This will create a complete Express.js project structure in your current directory.
-
-## Alternative Installation Methods
-
-### Global Installation
-If you prefer to install globally:
-
-\`\`\`bash
-npm install -g node-folder-structure
-create-express-app
-\`\`\`
-
-## What's Included
-
-This will generate a complete Express.js project structure with:
-
+const readmeFile = `
 ### Project Structure
     public / temp                  # Contains static assets like images
     src /                          # Main source code directory.
@@ -521,27 +518,6 @@ This will generate a complete Express.js project structure with:
 - 📦 File Upload Setup with Multer
 - 🗃️ MongoDB Integration
 - 🔐 Environment Variables Setup
-
-## Usage
-After generating the structure:
-
-1. Install dependencies:
-\`\`\`bash
-npm install
-\`\`\`
-
-2. Create a .env file based on the provided template
-
-3. Start your application:
-\`\`\`bash
-npm start
-\`\`\`
-
-## Contributing
-Feel free to open issues and pull requests!
-
-## License
-ISC
 `
 
 module.exports = {
@@ -577,5 +553,6 @@ module.exports = {
     validators_user_js,
     validators_index_js,
     dotenv,
+    package_json,
     readmeFile,
 }

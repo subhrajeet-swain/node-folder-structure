@@ -1,6 +1,11 @@
-## Installation using npx (Recommended)
+## Quick Start (Recommended)
 ```bash
+# Create in current directory
 npx node-folder-structure
+
+# Create in new directory
+npx node-folder-structure my-app
+```
 ```
 
 ## Project Structure
