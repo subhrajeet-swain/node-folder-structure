@@ -1,4 +1,4 @@
-## Installation
+## Installation using npx (Recommended)
 ```bash
 npx node-folder-structure
 ```
@@ -43,21 +43,11 @@ You can use this package in two ways:
 npx node-folder-structure
 ```
 
-### Global Installation
-1. Install the package globally:
-```bash
-npm install -g node-folder-structure
-```
-
-2. Run in your project directory:
-```bash
-create-express-app
-```
-
 This will generate a complete Express.js project structure with:
 - MVC architecture
 - Middleware setup
 - Validation middleware
 - Error handling
 - Database configuration
+- Modern 3-layer approach
 - And more...
