@@ -95,8 +95,7 @@ module.exports = {
     dbName
 };`
 
-const user_controller_js = `// User controller
-const { createUser, getUserById, deleteUserById } = require("../models");
+const user_controller_js = `const { UserService } = require("../services");
 const { asyncHandler } = require("../utils");
 
 // Create a new user
@@ -114,10 +113,7 @@ exports.createUser = asyncHandler(async (req, res) => {
 
 // Get user by ID
 exports.getUserById = asyncHandler(async (req, res) => {
-    const user = await getUserById(req.params.id);
-    if (!newUser) {
-        throw new ApiError(500, "Something went wrong while fetching the user")
-    }
+    const user = await UserService.getUser(req.params.id);
     return res.status(201).json(
         new ApiResponse(200, user, "User found Successfully")
     )
@@ -125,12 +121,9 @@ exports.getUserById = asyncHandler(async (req, res) => {
 
 // Delete user by ID
 exports.deleteUserById = asyncHandler(async (req, res) => {
-    const deletedUser = await deleteUserById(req.params.id);
-    if (!deletedUser) {
-        throw new ApiError(500, "Something went wrong while fetching the user")
-    }
+    const deletedUser = await UserService.deleteUserById(req.params.id);
     return res.status(201).json(
-        new ApiResponse(200, user, "User found Successfully")
+        new ApiResponse(200, deletedUser, "User found Successfully")
     )
 });`
 
@@ -224,8 +217,7 @@ module.exports = {
 const model_seeders_js = `// Data seeders
 `
 
-const user_model_js = `// User model
-const { Schema } = require("mongoose");
+const user_model_js = `const { Schema } = require("mongoose");
 const { ApiError } = require("../utils/index");
 
 const UserModel = new Schema({
@@ -235,30 +227,25 @@ const UserModel = new Schema({
     address: String,
 });
 
-exports.createUser = async (userDetails) => {
-    const existingUser = await UserModel.findOne({
+exports.existingUser = async (username, email) => {
+    await UserModel.findOne({
         $or: [{ username }, { email }]
     });
-    if (existingUser) {
-        throw new ApiError(409, "User with email or username already exists")
-    }
+    return true; // User with email or username already exists
+}
+
+exports.createUser = async (userDetails) => {
     const newUser = await UserModel.create(userDetails);
     return newUser;
 }
 
 exports.getUserById = async (id) => {
     const user = await UserModel.findById(id);
-    if (!user) {
-        throw new ApiError(409, "User not found")
-    }
     return user;
 }
 
 exports.deleteUserById = async (id) => {
     const deletedUser = await UserModel.findByIdAndDelete(id);
-    if (!deletedUser) {
-        throw new ApiError(409, "User not found or already deleted")
-    }
     return deletedUser;
 }
 `
