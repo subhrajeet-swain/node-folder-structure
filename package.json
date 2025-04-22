@@ -1,7 +1,7 @@
 {
   "name": "node-folder-structure",
-  "version": "2.0.3",
-  "description": "A CLI tool to generate an express app with 3-layer approach folder structure",
+  "version": "2.0.4",
+  "description": "Generate an Express.js app with 3-layer architecture. Quick start: npx node-folder-structure",
   "main": "bin/cli.js",
   "bin": {
     "node-folder-structure": "bin/cli.js"
@@ -9,6 +9,14 @@
   "directories": {
     "lib": "lib"
   },
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "os": [
+    "darwin",
+    "linux",
+    "win32"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -22,7 +30,10 @@
     "cli",
     "node",
     "folder",
-    "structure"
+    "structure",
+    "boilerplate",
+    "generator",
+    "scaffold"
   ],
   "author": "subhrajeet-swain",
   "license": "ISC",
@@ -31,11 +42,11 @@
   },
   "homepage": "https://github.com/subhrajeet-swain/create-express-app#readme",
   "dependencies": {
-    "fs-extra": "^11.2.0"
+    "fs-extra": "^11.3.0"
   },
   "peerDependencies": {
+    "dotenv": "^16.0.0",
     "express": "^4.17.1",
-    "mongoose": "^6.0.0",
-    "dotenv": "^16.0.0"
+    "mongoose": "^6.0.0"
   }
 }
