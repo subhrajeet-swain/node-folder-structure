@@ -1,6 +1,6 @@
 {
   "name": "node-folder-structure",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Generate an Express.js app with 3-layer architecture. Quick start: npx node-folder-structure",
   "main": "bin/cli.js",
   "bin": {
