@@ -12,17 +12,17 @@ function getNpmCommand() {
 }
 
 // Function to install dependencies with better cross-platform support
-function installDependencies(projectPath) {
+function installDependencies() {
     return new Promise((resolve, reject) => {
         console.log("Installing required dependencies...");
 
         const npm = getNpmCommand();
-        const installProcess = spawn(npm, ['install'], {
+        const installProcess = spawn(npm, ['install', 'fs-extra'], {
             stdio: 'inherit',
             shell: true,
             env: { ...process.env },
             windowsHide: true,
-            cwd: projectPath
+            cwd: path.resolve(__dirname, '..')
         });
 
         installProcess.on('error', (error) => {
@@ -42,25 +42,28 @@ function installDependencies(projectPath) {
 
 async function init() {
     try {
+        await installDependencies();
+
         // Now that dependencies are installed, we can require and use them
         const { generateStructure } = require("../lib/generateFolders");
         console.log("\nGenerating structure for a fresh Node.js project...");
-
         await generateStructure(appName);
 
         const projectPath = appName === '.' ? process.cwd() : path.join(process.cwd(), appName);
-        await installDependencies(projectPath);
-
         console.log("\n✨ Project structure generated successfully!");
         console.log(`\n🎉 Created ${appName === '.' ? 'new Express app' : appName} at ${projectPath}`);
         console.log("\n👉 To get started:");
         if (appName !== '.') {
             console.log(`   cd ${appName}`);
         }
+        console.log("   npm install");
         console.log("   npm run dev");
 
     } catch (error) {
         console.error("\n❌ Error:", error.message);
+        console.error("\nIf the error persists, try running:");
+        console.log(`\n   ${getNpmCommand()} install -g fs-extra`);
+        console.log("   npx node-folder-structure\n");
         process.exit(1);
     }
 }
