@@ -1,6 +1,6 @@
 {
   "name": "node-folder-structure",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "A CLI tool to generate an express app with 3-layer approach folder structure",
   "main": "bin/cli.js",
   "bin": {
