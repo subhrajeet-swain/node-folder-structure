@@ -31,9 +31,11 @@
   },
   "homepage": "https://github.com/subhrajeet-swain/create-express-app#readme",
   "dependencies": {
-    "dotenv": "^16.5.0",
-    "express": "^5.1.0",
-    "fs-extra": "^11.2.0",
-    "mongoose": "^8.13.2"
+    "fs-extra": "^11.2.0"
+  },
+  "peerDependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.0",
+    "dotenv": "^16.0.0"
   }
 }
