@@ -6,7 +6,6 @@ npx node-folder-structure
 # Create in new directory
 npx node-folder-structure my-app
 ```
-```
 
 ## Project Structure
 ```
