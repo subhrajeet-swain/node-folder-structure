@@ -1,3 +1,8 @@
+## Installation
+```bash
+npx node-folder-structure
+```
+
 ## Project Structure
 ```
 public/temp                     # Contains static assets like images
